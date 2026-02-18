@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NarrativeIQ — Win the Story</title>
+    <title>IQNarrative — Win the Story</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,300&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -32,10 +32,6 @@
             overflow-x: hidden;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         .grain {
             position: fixed;
             top: 0;
@@ -54,108 +50,80 @@
             padding: 0 2rem;
         }
 
-        /* Sticky Navigation */
+        /* Header */
         header {
-            position: sticky;
-            top: 0;
-            background: var(--paper);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 2.5rem 0;
+            border-bottom: 2px solid var(--ink);
+            position: relative;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
         }
 
         .logo {
             font-family: 'Fraunces', serif;
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 800;
             letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+
+        .logo .iq {
+            color: var(--accent);
+            font-style: italic;
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
             gap: 2.5rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--ink);
-            font-size: 1rem;
-            transition: color 0.2s;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            font-weight: 600;
         }
 
         .nav-links a:hover {
             color: var(--accent);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 6rem;
-            text-align: center;
-        }
-
-        .eyebrow {
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-family: 'Fraunces', serif;
-            font-size: 5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            letter-spacing: -0.03em;
-        }
-
-        .hero h1 .highlight {
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        .hero-description {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: var(--subtle);
-            line-height: 1.7;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        /* Buttons */
         .cta-button {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-family: 'Crimson Pro', serif;
-            font-weight: 600;
-            border: 2px solid var(--accent);
             background: var(--accent);
             color: var(--paper);
+            padding: 0.75rem 2rem;
+            border: none;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
         }
 
         .cta-button:hover {
             background: var(--accent-dark);
             border-color: var(--accent-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .cta-button.outline {
@@ -168,16 +136,74 @@
             color: var(--paper);
         }
 
-        .cta-button.small {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            position: relative;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            font-family: 'Crimson Pro', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 5.5rem;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        h1 .highlight {
+            font-style: italic;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            color: var(--subtle);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         /* Stats Bar */
         .stats {
             background: var(--ink);
             color: var(--paper);
-            padding: 4rem 0;
+            padding: 3rem 0;
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-out 0.6s both;
         }
 
         .stats-grid {
@@ -207,7 +233,8 @@
 
         /* Features Section */
         .features {
-            padding: 8rem 0;
+            padding: 6rem 0;
+            animation: fadeIn 1s ease-out 0.9s both;
         }
 
         .section-header {
@@ -223,94 +250,107 @@
             letter-spacing: -0.02em;
         }
 
-        .section-description {
+        .section-subtitle {
             font-size: 1.3rem;
             color: var(--subtle);
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 4rem 3rem;
+            gap: 4rem;
         }
 
         .feature {
+            position: relative;
             padding: 2.5rem;
-            border: 1px solid var(--border);
-            background: white;
-            transition: all 0.3s;
+            border: 2px solid var(--border);
+            transition: all 0.4s;
+            background: var(--paper);
         }
 
         .feature:hover {
             border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.1);
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.1);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-title {
+        .feature-number {
             font-family: 'Fraunces', serif;
-            font-size: 1.6rem;
+            font-size: 1rem;
+            color: var(--accent);
             font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .feature h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .feature-description {
-            font-size: 1.1rem;
+        .feature p {
+            font-size: 1.15rem;
+            line-height: 1.7;
             color: var(--subtle);
-            line-height: 1.8;
         }
 
-        /* How It Works Section */
+        /* How It Works */
         .how-it-works {
-            padding: 8rem 0;
-            background: var(--highlight);
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, var(--paper) 0%, var(--highlight) 100%);
+            animation: fadeIn 1s ease-out 1.2s both;
         }
 
         .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
             margin-top: 4rem;
+            display: grid;
+            gap: 3rem;
         }
 
         .step {
-            text-align: center;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
         .step-number {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: 'Fraunces', serif;
-            font-size: 5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
-            opacity: 0.2;
-            line-height: 1;
-            margin-bottom: 1rem;
         }
 
-        .step-title {
+        .step-content h3 {
             font-family: 'Fraunces', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1rem;
         }
 
-        .step-description {
-            font-size: 1.1rem;
+        .step-content p {
+            font-size: 1.2rem;
             color: var(--subtle);
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         /* Pricing Section */
         .pricing {
-            padding: 8rem 0;
+            padding: 6rem 0;
+            background: var(--paper);
+            animation: fadeIn 1s ease-out 1.3s both;
         }
 
         .pricing-grid {
@@ -323,16 +363,15 @@
         .pricing-card {
             border: 2px solid var(--border);
             padding: 3rem 2.5rem;
-            text-align: center;
-            background: white;
-            transition: all 0.3s;
+            background: var(--paper);
+            transition: all 0.4s;
             position: relative;
         }
 
         .pricing-card:hover {
             border-color: var(--accent);
-            box-shadow: 0 12px 32px rgba(196, 30, 58, 0.15);
-            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.15);
+            transform: translateY(-5px);
         }
 
         .pricing-card.featured {
@@ -394,7 +433,6 @@
 
         .pricing-features {
             list-style: none;
-            text-align: left;
             margin-bottom: 2.5rem;
         }
 
@@ -414,109 +452,99 @@
             flex-shrink: 0;
         }
 
-        /* Platform Section */
-        .platform {
-            padding: 8rem 0;
-            background: var(--ink);
-            color: var(--paper);
-        }
-
-        .platform .section-title,
-        .platform .section-description {
-            color: var(--paper);
-        }
-
-        .platform-content {
-            margin-top: 4rem;
-            font-size: 1.2rem;
-            line-height: 1.9;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .platform-logo {
-            font-family: 'Fraunces', serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        /* Final CTA */
+        /* CTA Section */
         .final-cta {
             padding: 8rem 0;
             text-align: center;
             background: var(--highlight);
+            color: var(--ink);
+            animation: fadeIn 1s ease-out 1.5s both;
         }
 
         .final-cta h2 {
             font-family: 'Fraunces', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             margin-bottom: 2rem;
             letter-spacing: -0.02em;
         }
 
         .final-cta p {
-            font-size: 1.3rem;
-            color: var(--subtle);
+            font-size: 1.4rem;
             margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--subtle);
+        }
+
+        .final-cta .cta-button {
+            background: var(--accent);
+            border-color: var(--accent);
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Platform Section */
+        .platform {
+            padding: 6rem 0;
+            background: var(--ink);
+            color: var(--paper);
+            animation: fadeIn 1s ease-out 1.4s both;
+        }
+
+        .platform-content {
+            max-width: 800px;
+        }
+
+        .platform-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .platform p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
         }
 
         /* Footer */
         footer {
             background: var(--ink);
             color: var(--paper);
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
+            border-top: 2px solid var(--accent);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
-            font-family: 'Fraunces', serif;
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-description {
-            opacity: 0.8;
-            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
         .footer-section h4 {
             font-family: 'Fraunces', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .footer-links {
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
+        .footer-section a {
             color: var(--paper);
             text-decoration: none;
             opacity: 0.8;
-            transition: opacity 0.2s;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
         }
 
-        .footer-links a:hover {
+        .footer-section a:hover {
             opacity: 1;
             color: var(--accent);
         }
@@ -525,170 +553,36 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            opacity: 0.6;
+            opacity: 0.7;
+            font-size: 0.95rem;
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--paper);
-            padding: 3rem;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--subtle);
-            line-height: 1;
-            padding: 0;
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .modal-close:hover {
-            color: var(--accent);
-        }
-
-        .modal-title {
-            font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .modal-description {
-            font-size: 1.1rem;
-            color: var(--subtle);
-            margin-bottom: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 0.75rem;
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            border: 1px solid var(--border);
-            background: white;
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            font-family: 'Crimson Pro', serif;
-            font-weight: 600;
-            border: none;
-            background: var(--accent);
-            color: var(--paper);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .form-submit:hover {
-            background: var(--accent-dark);
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .form-success.active {
-            display: block;
-        }
-
-        .form-success-icon {
-            font-size: 4rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .form-success-title {
-            font-family: 'Fraunces', serif;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .form-success-message {
-            font-size: 1.1rem;
-            color: var(--subtle);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
+            h1 {
                 font-size: 3rem;
             }
 
-            .section-title {
-                font-size: 2.5rem;
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
 
             .nav-links {
                 display: none;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-grid,
-            .features-grid,
-            .steps {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -696,130 +590,132 @@
 <body>
     <div class="grain"></div>
 
-    <!-- Sticky Navigation -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">NarrativeIQ</div>
+                <div class="logo"><span class="iq">IQ</span>Narrative</div>
                 <ul class="nav-links">
-                    <li><a href="#intelligence">Intelligence</a></li>
+                    <li><a href="#features">Intelligence</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#platform">Platform</a></li>
-                    <li><button class="cta-button small" onclick="openContactModal('demo')">Request Demo</button></li>
+                    <li><button class="cta-button">Request Demo</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="eyebrow">AI Narrative Intelligence Platform</div>
-            <h1>Win the <span class="highlight">story</span> before you lose the race.</h1>
-            <p class="hero-description">NarrativeIQ gives political campaigns real-time intelligence on how narratives are forming, shifting, and breaking—so you can shape the conversation instead of reacting to it.</p>
-            <div class="hero-ctas">
-                <button class="cta-button" onclick="openContactModal('started')">Get Started</button>
-                <button class="cta-button outline" onclick="openContactModal('watch')">Watch Demo</button>
+            <div class="hero-content">
+                <div class="eyebrow">AI Narrative Intelligence Platform</div>
+                <h1>Win the <span class="highlight">story</span> before you<br>lose the race.</h1>
+                <p class="hero-description">IQNarrative gives political campaigns real-time intelligence on how narratives are forming, shifting, and breaking—so you can shape the conversation instead of reacting to it.</p>
+                <div class="hero-ctas">
+                    <button class="cta-button">Get Started</button>
+                    <button class="cta-button outline">Watch Demo</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">AI platforms monitored in real-time</span>
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">Faster narrative threat detection</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">15M+</span>
+                    <span class="stat-label">Messages analyzed daily</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">48hr</span>
                     <span class="stat-label">Average narrative shift warning</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">18</span>
-                    <span class="stat-label">Intelligence categories analyzed</span>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="intelligence" class="features">
+    <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Intelligence That Matters</h2>
-                <p class="section-description">Comprehensive narrative analysis across the AI platforms shaping voter perceptions and donor decisions.</p>
+                <h2 class="section-title">Everything you need to control the narrative</h2>
+                <p class="section-subtitle">Real intelligence for the stories that shape elections</p>
             </div>
             <div class="features-grid">
                 <div class="feature">
-                    <span class="feature-icon">🎯</span>
-                    <h3 class="feature-title">Real-Time Narrative Tracking</h3>
-                    <p class="feature-description">Monitor how ChatGPT, Claude, Gemini, and Perplexity present your candidate to voters and donors—updated continuously.</p>
+                    <div class="feature-number">01</div>
+                    <h3>Real-Time Narrative Tracking</h3>
+                    <p>Monitor how your message, your opponent's message, and emerging stories are resonating across media, social platforms, and voter conversations.</p>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">⚡</span>
-                    <h3 class="feature-title">Sentiment & Tone Alerts</h3>
-                    <p class="feature-description">Instant notifications when AI platforms shift from neutral to negative, positive to critical, or supportive to skeptical.</p>
+                    <div class="feature-number">02</div>
+                    <h3>Sentiment Shift Alerts</h3>
+                    <p>Get instant alerts when narratives begin to turn—whether it's erosion of your message or unexpected momentum you can capitalize on.</p>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">📊</span>
-                    <h3 class="feature-title">Message Effectiveness Analysis</h3>
-                    <p class="feature-description">See which campaign messages break through AI filters and which get lost—adjust your strategy accordingly.</p>
+                    <div class="feature-number">03</div>
+                    <h3>Message Effectiveness Analysis</h3>
+                    <p>Understand which frames work, which fall flat, and which demographics are responding to your communications before you scale them.</p>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">🔍</span>
-                    <h3 class="feature-title">Opposition Research Intelligence</h3>
-                    <p class="feature-description">Track how AI systems frame your opponents—find gaps in their narrative armor before your comms team does.</p>
+                    <div class="feature-number">04</div>
+                    <h3>Opposition Research Intelligence</h3>
+                    <p>Track how opponents are framing issues, identify vulnerabilities in their narrative, and spot contradictions before they become armor.</p>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">🚨</span>
-                    <h3 class="feature-title">Crisis Narrative Monitoring</h3>
-                    <p class="feature-description">Early warning system for narrative threats—from oppo drops to viral attacks—so your team can respond before damage sets in.</p>
+                    <div class="feature-number">05</div>
+                    <h3>Crisis Narrative Monitoring</h3>
+                    <p>Early warning system for narrative threats—from oppo drops to viral attacks—so your team can respond before damage sets in.</p>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">💰</span>
-                    <h3 class="feature-title">Fundraising Impact Analysis</h3>
-                    <p class="feature-description">Understand how AI-presented narratives affect donor perceptions and giving patterns—optimize your fundraising messaging.</p>
+                    <div class="feature-number">06</div>
+                    <h3>Demographic Narrative Breakdown</h3>
+                    <p>See how different voter segments interpret and respond to the same story—because winning means different things to different audiences.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">How It Works</h2>
-                <p class="section-description">From initial audit to continuous monitoring, we deliver intelligence that keeps you ahead of the narrative.</p>
+                <p class="section-subtitle">From initial audit to continuous monitoring, we deliver intelligence that keeps you ahead of the narrative.</p>
             </div>
             <div class="steps">
                 <div class="step">
-                    <div class="step-number">01</div>
-                    <h3 class="step-title">Initial Intelligence Audit</h3>
-                    <p class="step-description">Comprehensive 18-page report revealing how AI platforms currently present your candidate across all major narrative categories.</p>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Initial Intelligence Audit</h3>
+                        <p>Comprehensive 18-page report revealing how AI platforms currently present your candidate across all major narrative categories.</p>
+                    </div>
                 </div>
                 <div class="step">
-                    <div class="step-number">02</div>
-                    <h3 class="step-title">Continuous Monitoring</h3>
-                    <p class="step-description">Real-time tracking of narrative shifts, sentiment changes, and emerging threats across ChatGPT, Claude, Gemini, and Perplexity.</p>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Continuous Monitoring</h3>
+                        <p>Real-time tracking of narrative shifts, sentiment changes, and emerging threats across ChatGPT, Claude, Gemini, and Perplexity.</p>
+                    </div>
                 </div>
                 <div class="step">
-                    <div class="step-number">03</div>
-                    <h3 class="step-title">Actionable Intelligence</h3>
-                    <p class="step-description">Regular reports, instant alerts, and strategic insights delivered directly to your team—no guesswork, just data.</p>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Actionable Intelligence</h3>
+                        <p>Regular reports, instant alerts, and strategic insights delivered directly to your team—no guesswork, just data.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Pricing</h2>
-                <p class="section-description">Professional intelligence services tailored to your race level. All packages include comprehensive audit and ongoing monitoring.</p>
+                <p class="section-subtitle">Professional intelligence services tailored to your race level. All packages include comprehensive audit and ongoing monitoring.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
@@ -835,10 +731,9 @@
                         <li>Sentiment shift alerts</li>
                         <li>Email support</li>
                     </ul>
-                    <button class="cta-button outline" onclick="openContactModal('local')">Get Started</button>
+                    <button class="cta-button outline">Get Started</button>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-card">
                     <div class="pricing-tier">State Races</div>
                     <div class="pricing-audit">$10,000</div>
                     <div class="pricing-audit-label">Initial Intelligence Audit</div>
@@ -852,7 +747,7 @@
                         <li>Opposition intelligence tracking</li>
                         <li>Priority phone & email support</li>
                     </ul>
-                    <button class="cta-button" onclick="openContactModal('state')">Get Started</button>
+                    <button class="cta-button">Get Started</button>
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-tier">Federal Races</div>
@@ -869,205 +764,72 @@
                         <li>Fundraising impact analysis</li>
                         <li>Dedicated account manager</li>
                     </ul>
-                    <button class="cta-button outline" onclick="openContactModal('federal')">Get Started</button>
+                    <button class="cta-button outline">Get Started</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platform Section -->
     <section id="platform" class="platform">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Built on AInarrative</h2>
-                <p class="section-description">The foundational platform for AI narrative intelligence across industries.</p>
-            </div>
             <div class="platform-content">
                 <span class="platform-logo">AInarrative</span>
-                <p>NarrativeIQ is powered by AInarrative—our proprietary platform that analyzes how AI systems present information, detect narrative patterns, and generate intelligence about storytelling across multiple AI platforms.</p>
-                <p style="margin-top: 2rem;">AInarrative's multi-LLM consensus engine synthesizes responses from ChatGPT, Claude, Gemini, and Perplexity to deliver the most comprehensive narrative intelligence available.</p>
+                <p>IQNarrative is powered by AInarrative—our proprietary platform that analyzes how AI systems present information, detects narrative patterns, and generates intelligence about storytelling across multiple AI platforms.</p>
+                <p>AInarrative's multi-LLM consensus engine synthesizes responses from ChatGPT, Claude, Gemini, and Perplexity to deliver the most comprehensive narrative intelligence available.</p>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="final-cta">
         <div class="container">
             <h2>Ready to win the narrative?</h2>
-            <p>Get your comprehensive intelligence audit and start monitoring how AI platforms present your candidate to voters and donors.</p>
-            <button class="cta-button" onclick="openContactModal('demo')">Request Demo</button>
+            <p>Join the campaigns that are shaping the story, not chasing it.</p>
+            <button class="cta-button">Request a Demo</button>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div>
-                    <div class="footer-brand">NarrativeIQ</div>
-                    <p class="footer-description">AI narrative intelligence for political campaigns. Monitor, analyze, and shape how your candidate is presented across major AI platforms.</p>
-                </div>
                 <div class="footer-section">
                     <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="#intelligence">Intelligence</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
                         <li><a href="#pricing">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Platform</h4>
-                    <ul class="footer-links">
-                        <li><a href="#platform">AInarrative</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API Access</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#demo">Request Demo</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#" onclick="openContactModal('demo'); return false;">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#api">API Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#security">Security</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 NarrativeIQ. Powered by AInarrative. All rights reserved.</p>
+                <p>&copy; 2026 IQNarrative.ai. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeContactModal()">&times;</button>
-            
-            <div id="contactForm">
-                <h2 class="modal-title" id="modalTitle">Request Demo</h2>
-                <p class="modal-description" id="modalDescription">Get a comprehensive look at how NarrativeIQ can give your campaign the intelligence edge.</p>
-                
-                <form onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label class="form-label" for="name">Name *</label>
-                        <input type="text" id="name" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email *</label>
-                        <input type="email" id="email" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="campaign">Campaign / Organization *</label>
-                        <input type="text" id="campaign" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="role">Your Role *</label>
-                        <input type="text" id="role" class="form-input" placeholder="e.g., Campaign Manager, Communications Director" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="raceType">Race Type *</label>
-                        <select id="raceType" class="form-select" required>
-                            <option value="">Select race type...</option>
-                            <option value="federal">Federal</option>
-                            <option value="state">State</option>
-                            <option value="local">Local</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="message">Message</label>
-                        <textarea id="message" class="form-textarea" placeholder="Tell us about your needs..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">Send Request</button>
-                </form>
-            </div>
-
-            <div id="formSuccess" class="form-success">
-                <div class="form-success-icon">✓</div>
-                <h3 class="form-success-title">Thank You!</h3>
-                <p class="form-success-message">We've received your request and will be in touch within 24 hours to schedule your demo.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Modal functionality
-        function openContactModal(type) {
-            const modal = document.getElementById('contactModal');
-            const title = document.getElementById('modalTitle');
-            const description = document.getElementById('modalDescription');
-            const message = document.getElementById('message');
-            
-            // Reset form and show it
-            document.getElementById('contactForm').style.display = 'block';
-            document.getElementById('formSuccess').classList.remove('active');
-            document.querySelector('form').reset();
-            
-            // Customize based on CTA type
-            if (type === 'demo') {
-                title.textContent = 'Request Demo';
-                description.textContent = 'Get a comprehensive look at how NarrativeIQ can give your campaign the intelligence edge.';
-                message.value = 'I\'d like to schedule a demo of NarrativeIQ.';
-            } else if (type === 'started') {
-                title.textContent = 'Get Started';
-                description.textContent = 'Start your comprehensive intelligence audit and continuous monitoring today.';
-                message.value = 'I\'m interested in getting started with NarrativeIQ.';
-            } else if (type === 'watch') {
-                title.textContent = 'Watch Demo';
-                description.textContent = 'We\'ll send you a personalized demo video and schedule a follow-up call.';
-                message.value = 'I\'d like to watch a demo of the platform.';
-            } else if (type === 'local' || type === 'state' || type === 'federal') {
-                title.textContent = 'Get Started';
-                description.textContent = `Start your ${type.charAt(0).toUpperCase() + type.slice(1)} race intelligence package today.`;
-                message.value = `I'm interested in the ${type.charAt(0).toUpperCase() + type.slice(1)} race package.`;
-                document.getElementById('raceType').value = type;
-            }
-            
-            modal.classList.add('active');
-        }
-        
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('active');
-        }
-        
-        // Close modal on outside click
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeContactModal();
-            }
-        });
-        
-        // Form submission (you'll need to wire this to your backend)
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                campaign: document.getElementById('campaign').value,
-                role: document.getElementById('role').value,
-                raceType: document.getElementById('raceType').value,
-                message: document.getElementById('message').value
-            };
-            
-            // TODO: Send to your backend/email service
-            console.log('Form submitted:', formData);
-            
-            // Show success message
-            document.getElementById('contactForm').style.display = 'none';
-            document.getElementById('formSuccess').classList.add('active');
-            
-            // Auto-close after 3 seconds
-            setTimeout(() => {
-                closeContactModal();
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
